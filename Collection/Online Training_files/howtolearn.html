@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&stream=Java&tm=TM804 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script async="" src="./analytics.js.download"></script><script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-78530517-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
+        <script src="./jquery.js.download"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="./bootstrap.min.js.download"></script>
+        <style>
+            .accord{
+                border-left-color: cornflowerblue !important; 
+                border-left-width: thick !important;
+                border-left-style:inset !important;
+                border-bottom-color:darkslateblue !important;
+                border-top-color: cornflowerblue !important;
+                border-top-left-radius:10px !important;
+                border-bottom-left-radius:10px !important;
+                border-right-color:darkslateblue !important;
+                border-right-width:thin!important;
+                border-style: inset !important;
+            }
+            .panel-heading-fd{
+                font-family: 'Open Sans', Helvetica, sans-serif;
+                background: #2962FF;
+                background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+                background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+                color: #ffffff;
+                padding: 5px 17px 8px;
+
+            }
+            .accordion-toggle:after {
+                font-family: 'FontAwesome';
+                content: "\f078";    
+                float: right;
+            }
+            .accordion-opened .accordion-toggle:after {    
+                content: "\f054";    
+            }
+            table.mt {border-width: 1px;border-spacing:0px ;border-style: solid;border-color: #cfcfcf;border-collapse: collapse;background-color: transparent;}
+            table.mt th {font-size: 12px;border-width: 1px;padding: 5px;border-style: solid;border-color: #cfcfcf;white-space: wrap; background-color: #afafaf;text-align:left;}
+            table.mt td {font-size: 13px;border-width: 1px;padding: 5px;border-style: solid;border-color: #cfcfcf;text-align: left;vertical-align:middle;white-space:wrap;}
+
+            .org-logo {
+                background-image: url('imgs/wipro-logo.png');
+            }
+            #edit-template{margin-top:20px}#edit-template>.top{padding:15px;border:1px solid #bbb}
+            #edit-template>.top .left-col .course-image{float:left;width:110px;height:70px;background-position:center;background-size:cover;border:1px solid #282828;margin-right:10px}
+
+            @media (min-resolution: 2dppx),
+            (min-resolution: 192dpi),
+            (-webkit-min-device-pixel-ratio: 2) {
+                @-ms-viewport { width:device-width; zoom:1.0; }
+                .org-logo {
+                    /*retina display*/
+                    background-image: url('imgs/wipro-logo.png');
+                }
+            }
+
+            .circle {
+                margin: 36px;
+                display: inline-block;
+                padding: 16px;
+                text-align: center;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 2px solid #1d2087;
+            }
+
+            .circle::before,
+            .circle::after {
+                position: absolute;
+                z-index: -1;
+                display: block;
+                content: '';
+            }
+            .circle,
+            .circle::before,
+            .circle::after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: all .5s;
+                transition: all .5s;
+            }
+
+            .circle {
+                position: relative;
+                z-index: 2;
+                background-color: #fff;
+                border: 2px solid #5c5eae;
+                color: #5c5eae;
+                line-height: 50px;
+                overflow: hidden;
+            }
+
+            .circle:hover {
+                color: white;
+
+            }
+            .circle::after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+            }
+            .circle:hover::after {
+                background: #5c5eae;
+                border-radius: 50%;
+                -webkit-transform: scale(.9);
+                transform: scale(.9);
+            }
+
+            .circle2 {
+                opacity: 0.6;
+            }
+
+
+            .circle a {
+                text-decoration: none;
+                color: #1d2087;
+            }
+
+
+            .circle h2 {
+                font-size: 20px !important;
+            }
+
+            .circle h2 small {
+                color: #1d2087;
+            }
+        </style>
+        <script type="text/javascript">
+            $('#accordion1').collapse({
+                toggle: false
+            }).on('show', function (e) {
+                $(e.target).parent().find(".icon-chevron-down").removeClass("icon-chevron-down").addClass("icon-chevron-up");
+            }).on('hide', function (e) {
+                $(e.target).parent().find(".icon-chevron-up").removeClass("icon-chevron-up").addClass("icon-chevron-down");
+            });
+        </script>
+        <script>
+            $(document).bind('keydown', function (e) {
+                if (e.ctrlKey && (e.which == 83)) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.altKey && e.which == 18) {
+                    // alert("Alt key pressed");
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            $(document).bind('keydown', 'ctrl+U', function (e) {
+                e.preventDefault();
+                return false;
+            });
+            $(document).bind('keydown', 'ctrl+shift+I', function (e) {
+                e.preventDefault();
+                return false;
+            });
+            $(document).bind("contextmenu", function (e) {
+                return false;
+            });
+
+        </script>
+        <link rel="stylesheet" href="./fonts.css" type="text/css" media="all">
+        <link rel="stylesheet" href="./home.css" type="text/css" media="all">         
+        <link rel="stylesheet" href="./user.css">
+        <link rel="stylesheet" media="screen" href="./pblstyle.css">
+    </head>
+    <body style="background-color:white;height:100%;overflow:auto;margin-left:0;padding-left: 0">
+        <div style="background-color:white;">
+            <div id="edit-template">
+                <div style="background-color:white;" class="top fxw">
+                    <div class="left-col fx fxw wa-force">
+                        <div class="course-image" style="background-image: url(&#39;imgs/cart1.jpg&#39;)"></div>
+                        <hgroup class="titles mt0-force-md fx">
+                            <h4><a class="ellipsis" data-purpose="course-title" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804">Tech Module</a></h4>
+                            <h4>
+                                Collection
+                            </h4>
+                        </hgroup>
+                    </div>
+                    <div class="right-col fxdc wa-force w160-force-md w90-force-xs">
+                        <!--                        <p><Strong>Project Status</strong><br>
+                        
+                        
+                            <span class="text-danger"> NOT COMPLETED</span>
+                        
+                    </p>-->
+                        <p>Exercises :&nbsp;<strong>0 / 8</strong> </p>
+                    </div>
+                </div>
+
+                <div style="background-color:white;margin-left: 0px;padding-left: 0px">
+                    <div class="fxdc-xs">
+                        <center><h3 class="tal-xs pl10-xs">
+
+                            </h3></center>
+                    </div>
+
+                    <hr>                   
+                    <div style="margin-right: 20px">
+                        <div class="panel-group" id="accordion">
+                            <div class="accord panel panel-default ">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#collapseOne" aria-expanded="false">
+                                            Mini Projects
+                                        </a>
+                                        <span class="arr"></span>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="panel-body">
+                                        <p>In this TECH Module, you are expected to complete the below Mini-Project(s)</p>
+                                        <ttitle>
+
+                                                </ttitle><table border="1" style="margin: auto;" class="mt">
+                                            <tbody><tr><th scope="row">S.No.</th>
+                                                <th width="60%">Mini-project Description</th>
+                                                <th width="40%">Topics Covered</th></tr>
+                                                        
+                                                    <tr>
+                                                        <td> 1</td>
+                                                        
+                                                        
+                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Prj1.pdf&amp;stream=Java&amp;tm=TM804&amp;module=Collection" target="_blank">Manage Employee Details</a> </td>
+                                                        
+
+                                                        <td> ArrayList, ListIterator</td>
+                                                    </tr>
+                                                
+
+                                        </tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accord panel panel-default">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#collapseTwo" aria-expanded="true">
+                                            Topics to Learn
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                    <div class="panel-body">
+                                        <p>To complete the above project, you will need to learn the below technical topics-</p>
+
+                                        <div class="bs-example">                             
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#T1" class="collapsed" aria-expanded="false">Introduction to Collection</a>
+
+                                                            </h5> </div>
+                                                        <div id="T1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Introduction to Collection</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Introduction to Collection </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Introduction_to_Collection.pdf&amp;stream=Java&amp;tm=TM804&amp;module=Collection" target="_blank"> Introduction_to_Collection.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Introduction to Collection </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_collections.htm" target="_blank"> http://www.tutorialspoint.com/java/java_collections.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Introduction to Collection</strong></h4>
+                                                                    
+                                                                        <center><h4><span class="label label-warning"> NO Hands-on Assignments for this topic </span></h4></center>
+                                                                                
+                                                                                
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#T2" aria-expanded="true">List</a>
+
+                                                            </h5> </div>
+                                                        <div id="T2" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>List</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>List </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=List.pdf&amp;stream=Java&amp;tm=TM804&amp;module=Collection" target="_blank"> List.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>List </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_list_interface.htm" target="_blank"> http://www.tutorialspoint.com/java/java_list_interface.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>ArrayLists </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_arraylist_class.htm" target="_blank"> http://www.tutorialspoint.com/java/java_arraylist_class.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>4</td>
+                                                                                        <td>ArrayLists </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/VE0HeWFaAIQ?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al" target="_blank"> https://www.youtube.com/embed/VE0HeWFaAIQ?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>5</td>
+                                                                                        <td>LinkedLists </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_linkedlist_class.htm" target="_blank"> http://www.tutorialspoint.com/java/java_linkedlist_class.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>6</td>
+                                                                                        <td>LinkedLists </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/EWr6rFqJUTU?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al" target="_blank"> https://www.youtube.com/embed/EWr6rFqJUTU?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>7</td>
+                                                                                        <td>Sorting Lists </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_collection_algorithms.htm" target="_blank"> http://www.tutorialspoint.com/java/java_collection_algorithms.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>8</td>
+                                                                                        <td>Using Iterators </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_using_iterator.htm" target="_blank"> http://www.tutorialspoint.com/java/java_using_iterator.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>9</td>
+                                                                                        <td>ListIterator </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/i4poeR9Vucs?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al" target="_blank"> https://www.youtube.com/embed/i4poeR9Vucs?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>List</strong></h4>
+                                                                    
+                                                                                  
+                                                                        <h5>Complete the below hands-on assignments before proceeding with the next Topic</h5>                    
+
+
+                                                                        <input type="submit" id="exUpdate_0" value="Update Completion Status" class="btn btn-success"><table border="1" style="margin: auto;" class="mt">
+                                                                            <tbody><tr>
+
+                                                                                <th>No.</th>
+                                                                                <th width="75%">Hands-on Assignment</th>
+                                                                                <th>Topics Covered</th>
+                                                                                <th>Status </th></tr>
+                                                                                    <form id="exUpdate" name="exUpdate" action="http://59.162.104.101:25000/PBLApp/exUpdate.action" method="post"></form>
+
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>1</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create an ArrayList that can store only Strings. 
+Create a printAll method that will print all the elements of the ArrayList using an Iterator and obeserve the order of the values being printed.</pre> </td>
+                                                                                                                                                                                     <td> List  iterator</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="1"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="List">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>2</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create an ArrayList that can store only numbers like int,float,double,etc, but not any other data type.</pre> </td>
+                                                                                                                                                                                     <td> List ArrayList</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="2"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="List">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>3</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Write a program to store integer numbers into Vector collection and use Enumeration to print the values. Also try using Iterator and ListIterator to print the values from the Vector object.</pre> </td>
+                                                                                                                                                                                     <td> List, Vector, Enumeration</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="3"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="List">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                 
+
+
+                                                                                
+
+                                                                            
+
+
+
+
+                                                                        </tbody></table>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#T3" aria-expanded="true">Generics</a>
+
+                                                            </h5> </div>
+                                                        <div id="T3" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Generics</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Generics </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.javatpoint.com/generics-in-java" target="_blank"> https://www.javatpoint.com/generics-in-java</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Generics</strong></h4>
+                                                                    
+                                                                        <center><h4><span class="label label-warning"> NO Hands-on Assignments for this topic </span></h4></center>
+                                                                                
+                                                                                
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#T4" aria-expanded="true">Set </a>
+
+                                                            </h5> </div>
+                                                        <div id="T4" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Set </strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Set  </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Set.pdf&amp;stream=Java&amp;tm=TM804&amp;module=Collection" target="_blank"> Set.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Set </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_set_interface.htm" target="_blank"> http://www.tutorialspoint.com/java/java_set_interface.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>HashSet </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/R7JFhZ-WwYw?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al" target="_blank"> https://www.youtube.com/embed/R7JFhZ-WwYw?list=PLS1QulWo1RIbfTjQvTdj8Y6yyq4R7g-Al</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Set </strong></h4>
+                                                                    
+                                                                                  
+                                                                        <h5>Complete the below hands-on assignments before proceeding with the next Topic</h5>                    
+
+
+                                                                        <input type="submit" id="exUpdate_0" value="Update Completion Status" class="btn btn-success"><table border="1" style="margin: auto;" class="mt">
+                                                                            <tbody><tr>
+
+                                                                                <th>No.</th>
+                                                                                <th width="75%">Hands-on Assignment</th>
+                                                                                <th>Topics Covered</th>
+                                                                                <th>Status </th></tr>
+                                                                                    <form id="exUpdate" name="exUpdate" action="http://59.162.104.101:25000/PBLApp/exUpdate.action" method="post"></form>
+
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>1</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create a class HashSetDemo with the folloing variables and methods:
+HashSet<string> set = new HashSet&lt;&gt;(); //instance variable
+public static void main(String[] args)
+boolean addCountry(String countryName)
+String findCountry(String countryName)
+void printAllCountries()
+From main() method, try to add the county name to HashSet object by calling addCountry(). Provide duplicate country name while adding and observe the return values from the addCountry().
+From main() method, try passing the country name to the findCountry() method and check the country name exists or not, if exists return the country name else return "Country Not Found".
+Now, call printAllCountries() to print all the country names which are added earlier. (Try using Enumeration, Iterator, ListIterator and observe and also observe the order of elements being printed)
+ </string></pre> </td>
+                                                                                                                                                                                     <td> Set, HashSet, Iterator</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="1"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Set ">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>2</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create a Collection called TreeSet which is capable of storing String objects. Then try these following operations :
+a) Reverse the elements of the Collection.
+b) Iterate the elements of the TreeSet using Iterator and observe the order.
+c) Check if a particular element exists or not.
+</pre> </td>
+                                                                                                                                                                                     <td> Set TreeSet</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="2"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Set ">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>3</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create the below classes:
+class Employee{
+int empID;
+String name;
+float salary;
+}
+class TreeSetDemo{
+ public static void main(String[] args)
+ boolean addEmployee(Employee emp)
+ void displayAllEmployees() // Display employee details based on salary in ascending order
+}
+</pre> </td>
+                                                                                                                                                                                     <td> Set, TreeSet</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="3"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Set ">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                 
+
+
+                                                                                
+
+                                                                            
+
+
+
+
+                                                                        </tbody></table>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#T5" aria-expanded="true">Map</a>
+
+                                                            </h5> </div>
+                                                        <div id="T5" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Map</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Map </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Map.pdf&amp;stream=Java&amp;tm=TM804&amp;module=Collection" target="_blank"> Map.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>HashMap </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.udemy.com/java-tutorial/#/lecture/161682" target="_blank"> https://www.udemy.com/java-tutorial/#/lecture/161682</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>Sorted Maps </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.udemy.com/java-tutorial/#/lecture/174232" target="_blank"> https://www.udemy.com/java-tutorial/#/lecture/174232</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>4</td>
+                                                                                        <td>Using Custom Objects </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.udemy.com/java-tutorial/#/lecture/176191" target="_blank"> https://www.udemy.com/java-tutorial/#/lecture/176191</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>5</td>
+                                                                                        <td>Map </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_map_interface.htm" target="_blank"> http://www.tutorialspoint.com/java/java_map_interface.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>6</td>
+                                                                                        <td>Map </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/4V8PRHMVHp4" target="_blank"> https://www.youtube.com/embed/4V8PRHMVHp4</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Map</strong></h4>
+                                                                    
+                                                                                  
+                                                                        <h5>Complete the below hands-on assignments before proceeding with the next Topic</h5>                    
+
+
+                                                                        <input type="submit" id="exUpdate_0" value="Update Completion Status" class="btn btn-success"><table border="1" style="margin: auto;" class="mt">
+                                                                            <tbody><tr>
+
+                                                                                <th>No.</th>
+                                                                                <th width="75%">Hands-on Assignment</th>
+                                                                                <th>Topics Covered</th>
+                                                                                <th>Status </th></tr>
+                                                                                    <form id="exUpdate" name="exUpdate" action="http://59.162.104.101:25000/PBLApp/exUpdate.action" method="post"></form>
+
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>1</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> 1. Develop a java class with an instance variable mapObj  of type HashMap. Create a method 
+String saveCountryCapital(String countryName, String capital) : The method should add the passed country and capital as key/value in the mapObj and return the appropriate value, try adding duplicate country name and capital.
+Key- Country                          Value - Capital
+India                                                      Delhi
+Japan                                                    Tokyo
+2. Develop a method String getCapital(String countryName) which returns the capital for the country passed. If country is not available, then return "No Country Found"
+3. Develop a method String getCountry(String capitalName) which returns the country for the capital name. If capital is not available, then return "No Capital Found"
+4. Develop a method which iterates through the mapObj and creates another HashMap mapObj2 with Capital as the key and value as Country and returns the mapObj2 object.
+Key – Capital                    Value – Country
+Delhi                                                  India
+Tokyo                                                Japan
+5. Develop a method which returns ArrayList object, the ArrayList object should contain all country names present in mapObj.
+6. Develop a method which returns ArrayList object, the ArrayList object should contain all capital names present in mapObj.
+NOTE: You can test the methods using a main method.</pre> </td>
+                                                                                                                                                                                     <td> Map, HashMap, Iterator</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="1"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Map">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>2</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create a contactList object of type TreeMap<string,long> to store name (as Key) and phone number (as Value). The program should have the following abilities:
+a) Provide contact name and get the phone number.
+b) Provide phone number and get the contact name.
+c) Print all the contact names and their respective phone numbers and observe the output.</string,long></pre> </td>
+                                                                                                                                                                                     <td> Map HashMap</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="2"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Map">
+                                                                                        <input type="hidden" name="module" value="Collection">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                 
+
+
+                                                                                
+
+                                                                            
+
+
+
+
+                                                                        </tbody></table>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                                                                 
+                                        </div> 
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accord panel panel-default">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#collapseThree" aria-expanded="false">
+                                            Learning Outcomes
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="panel-body">
+
+                                        <h5>Upon completion of this TECH Module, you should be able to: </h5>
+                                        <section id="services" class="clearfix">
+                                            <div class="container">
+                                                <ul> 
+                                                    
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with Collection</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with List</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with Set</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with Map</li>
+                                                             
+                                                </ul>
+                                            </div>
+
+
+                                    </section></div>
+                                </div>
+                            </div>
+
+                            <div class="accord panel panel-default">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804#collapseFour" aria-expanded="false">
+                                            Sample Questions
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="panel-body">
+
+                                        <p>After gaining knowledge of the above module, below are the possible interview questions that you should be able to confidently answer.</p>
+                                        <ttitle>
+                                                </ttitle><section id="services" class="clearfix">
+
+                                                    
+                                                        </section><table border="1" style="margin: auto;" class="mt">
+                                            <tbody><tr><th> No </th>    
+                                                <th width="95%">Questions</th>
+                                                </tr>
+                                                <tr>
+                                                            <td>&nbsp;1</td>
+                                                            <td>&nbsp;What is the difference between ArrayList and Vector?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;2</td>
+                                                            <td>&nbsp;What is the difference between ArrayList and LinkedList?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;3</td>
+                                                            <td>&nbsp;What is the difference between Iterator and ListIterator?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;4</td>
+                                                            <td>&nbsp;What is the difference between Iterator and Enumeration?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;5</td>
+                                                            <td>&nbsp;What is the difference between List and Set?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;6</td>
+                                                            <td>&nbsp;What is the difference between HashSet and TreeSet?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;7</td>
+                                                            <td>&nbsp;What is the difference between Set and Map?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;8</td>
+                                                            <td>&nbsp;What is the difference between HashSet and HashMap?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;9</td>
+                                                            <td>&nbsp;What is the difference between HashMap and TreeMap?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;10</td>
+                                                            <td>&nbsp;What is the difference between HashMap and Hashtable?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;11</td>
+                                                            <td>&nbsp;What is the difference between Collection and Collections?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;12</td>
+                                                            <td>&nbsp;What are the classes implementing List interface?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;13</td>
+                                                            <td>&nbsp;What are Collection related features in Java 8?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;14</td>
+                                                            <td>&nbsp;What is Java Collections Framework? List out some benefits of Collections framework?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;15</td>
+                                                            <td>&nbsp;What are the basic interfaces of Java Collections Framework?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;16</td>
+                                                            <td>&nbsp;Why Collection doesn’t extend Cloneable and Serializable interfaces?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;17</td>
+                                                            <td>&nbsp;Why Map interface doesn’t extend Collection interface?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;18</td>
+                                                            <td>&nbsp;What is an Iterator?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;19</td>
+                                                            <td>&nbsp;How can Arraylist be synchronized without using Vector?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;20</td>
+                                                            <td>&nbsp;When to use ArrayList or LinkedList ?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;21</td>
+                                                            <td>&nbsp;What are advantages of iterating a collection using iterator?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;22</td>
+                                                            <td>&nbsp;Why can’t we create generic array? or write code as&nbsp;List&lt;Integer&gt;[] array = new ArrayList&lt;Integer&gt;[10];</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;23</td>
+                                                            <td>&nbsp;Why can’t we write code as&nbsp;List&lt;Number&gt; numbers = new ArrayList&lt;Integer&gt;();?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;24</td>
+                                                            <td>&nbsp;What is Collections Class?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;25</td>
+                                                            <td>&nbsp;What are similarities and difference between ArrayList and Vector?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;26</td>
+                                                            <td>&nbsp;How to decide between HashMap and TreeMap?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;27</td>
+                                                            <td>&nbsp;What are different Collection views provided by Map interface?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;28</td>
+                                                            <td>&nbsp;What is the importance of hashCode() and equals() methods?</td>
+                                                        </tr>
+                                                     
+                                                
+                                        </tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer offer-radius offer-success">
+                    <div class="shape">
+                        <div class="shape-text">
+                            New								
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="offer-content" id="content">
+                            <div class="col-sm-4" style="margin-top: 30px">
+                                <img src="./LetsPlay.png">
+                                <img src="./comingsoon.jpg" height="150px" width="150px"> 
+                            </div>
+
+                            <div class="col-sm-2 col-xs-3">
+                                <div class="circle circle2">
+                                    <!--          <a href="http://localhost/quiz/homepage.php?eid=7777&category=JAVA&tm=TM1&topic=Java Architecture&tot=5" target=""><h2>Quiz Corner</h2></a>-->
+                                    <a href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804" target=""><h2>Quiz Corner</h2></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <div class="circle circle2">
+                                    <!--          <a href="http://localhost:9090/PBLCrossword_v2/LaunchBoardNew1.jsp?name=CW_TM_1" target=""><h2>Cross words</h2></a>-->
+                                    <a href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804" target=""><h2>Cross words</h2></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <div class="circle circle2">
+                                    <a href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Collection&amp;stream=Java&amp;tm=TM804"><h2>Debug Corner</h2></a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>   
+
+
+            </div>
+        </div>
+
+    
+</body></html>
