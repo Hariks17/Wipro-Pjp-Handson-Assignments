@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<!-- saved from url=(0128)http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&stream=Java&tm=TM803 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script async="" src="./analytics.js.download"></script><script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-78530517-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
+        <script src="./jquery.js.download"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="./bootstrap.min.js.download"></script>
+        <style>
+            .accord{
+                border-left-color: cornflowerblue !important; 
+                border-left-width: thick !important;
+                border-left-style:inset !important;
+                border-bottom-color:darkslateblue !important;
+                border-top-color: cornflowerblue !important;
+                border-top-left-radius:10px !important;
+                border-bottom-left-radius:10px !important;
+                border-right-color:darkslateblue !important;
+                border-right-width:thin!important;
+                border-style: inset !important;
+            }
+            .panel-heading-fd{
+                font-family: 'Open Sans', Helvetica, sans-serif;
+                background: #2962FF;
+                background: -moz-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51bbd2), color-stop(100%, #2d97af));
+                background: -webkit-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: -o-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: -ms-linear-gradient(top, #51bbd2 0%, #2d97af 100%);
+                background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+                color: #ffffff;
+                padding: 5px 17px 8px;
+
+            }
+            .accordion-toggle:after {
+                font-family: 'FontAwesome';
+                content: "\f078";    
+                float: right;
+            }
+            .accordion-opened .accordion-toggle:after {    
+                content: "\f054";    
+            }
+            table.mt {border-width: 1px;border-spacing:0px ;border-style: solid;border-color: #cfcfcf;border-collapse: collapse;background-color: transparent;}
+            table.mt th {font-size: 12px;border-width: 1px;padding: 5px;border-style: solid;border-color: #cfcfcf;white-space: wrap; background-color: #afafaf;text-align:left;}
+            table.mt td {font-size: 13px;border-width: 1px;padding: 5px;border-style: solid;border-color: #cfcfcf;text-align: left;vertical-align:middle;white-space:wrap;}
+
+            .org-logo {
+                background-image: url('imgs/wipro-logo.png');
+            }
+            #edit-template{margin-top:20px}#edit-template>.top{padding:15px;border:1px solid #bbb}
+            #edit-template>.top .left-col .course-image{float:left;width:110px;height:70px;background-position:center;background-size:cover;border:1px solid #282828;margin-right:10px}
+
+            @media (min-resolution: 2dppx),
+            (min-resolution: 192dpi),
+            (-webkit-min-device-pixel-ratio: 2) {
+                @-ms-viewport { width:device-width; zoom:1.0; }
+                .org-logo {
+                    /*retina display*/
+                    background-image: url('imgs/wipro-logo.png');
+                }
+            }
+
+            .circle {
+                margin: 36px;
+                display: inline-block;
+                padding: 16px;
+                text-align: center;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 2px solid #1d2087;
+            }
+
+            .circle::before,
+            .circle::after {
+                position: absolute;
+                z-index: -1;
+                display: block;
+                content: '';
+            }
+            .circle,
+            .circle::before,
+            .circle::after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: all .5s;
+                transition: all .5s;
+            }
+
+            .circle {
+                position: relative;
+                z-index: 2;
+                background-color: #fff;
+                border: 2px solid #5c5eae;
+                color: #5c5eae;
+                line-height: 50px;
+                overflow: hidden;
+            }
+
+            .circle:hover {
+                color: white;
+
+            }
+            .circle::after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+            }
+            .circle:hover::after {
+                background: #5c5eae;
+                border-radius: 50%;
+                -webkit-transform: scale(.9);
+                transform: scale(.9);
+            }
+
+            .circle2 {
+                opacity: 0.6;
+            }
+
+
+            .circle a {
+                text-decoration: none;
+                color: #1d2087;
+            }
+
+
+            .circle h2 {
+                font-size: 20px !important;
+            }
+
+            .circle h2 small {
+                color: #1d2087;
+            }
+        </style>
+        <script type="text/javascript">
+            $('#accordion1').collapse({
+                toggle: false
+            }).on('show', function (e) {
+                $(e.target).parent().find(".icon-chevron-down").removeClass("icon-chevron-down").addClass("icon-chevron-up");
+            }).on('hide', function (e) {
+                $(e.target).parent().find(".icon-chevron-up").removeClass("icon-chevron-up").addClass("icon-chevron-down");
+            });
+        </script>
+        <script>
+            $(document).bind('keydown', function (e) {
+                if (e.ctrlKey && (e.which == 83)) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.altKey && e.which == 18) {
+                    // alert("Alt key pressed");
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            $(document).bind('keydown', 'ctrl+U', function (e) {
+                e.preventDefault();
+                return false;
+            });
+            $(document).bind('keydown', 'ctrl+shift+I', function (e) {
+                e.preventDefault();
+                return false;
+            });
+            $(document).bind("contextmenu", function (e) {
+                return false;
+            });
+
+        </script>
+        <link rel="stylesheet" href="./fonts.css" type="text/css" media="all">
+        <link rel="stylesheet" href="./home.css" type="text/css" media="all">         
+        <link rel="stylesheet" href="./user.css">
+        <link rel="stylesheet" media="screen" href="./pblstyle.css">
+    </head>
+    <body style="background-color:white;height:100%;overflow:auto;margin-left:0;padding-left: 0">
+        <div style="background-color:white;">
+            <div id="edit-template">
+                <div style="background-color:white;" class="top fxw">
+                    <div class="left-col fx fxw wa-force">
+                        <div class="course-image" style="background-image: url(&#39;imgs/cart1.jpg&#39;)"></div>
+                        <hgroup class="titles mt0-force-md fx">
+                            <h4><a class="ellipsis" data-purpose="course-title" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803">Tech Module</a></h4>
+                            <h4>
+                                Abstraction /Packages / Exception Handling
+                            </h4>
+                        </hgroup>
+                    </div>
+                    <div class="right-col fxdc wa-force w160-force-md w90-force-xs">
+                        <!--                        <p><Strong>Project Status</strong><br>
+                        
+                        
+                            <span class="text-danger"> NOT COMPLETED</span>
+                        
+                    </p>-->
+                        <p>Exercises :&nbsp;<strong>0 / 7</strong> </p>
+                    </div>
+                </div>
+
+                <div style="background-color:white;margin-left: 0px;padding-left: 0px">
+                    <div class="fxdc-xs">
+                        <center><h3 class="tal-xs pl10-xs">
+
+                            </h3></center>
+                    </div>
+
+                    <hr>                   
+                    <div style="margin-right: 20px">
+                        <div class="panel-group" id="accordion">
+                            <div class="accord panel panel-default ">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#collapseOne" aria-expanded="false">
+                                            Mini Projects
+                                        </a>
+                                        <span class="arr"></span>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="panel-body">
+                                        <p>In this TECH Module, you are expected to complete the below Mini-Project(s)</p>
+                                        <ttitle>
+
+                                                </ttitle><table border="1" style="margin: auto;" class="mt">
+                                            <tbody><tr><th scope="row">S.No.</th>
+                                                <th width="60%">Mini-project Description</th>
+                                                <th width="40%">Topics Covered</th></tr>
+                                                        
+                                                    <tr>
+                                                        <td> 1</td>
+                                                        
+                                                        
+                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=PrjGrade.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank">Mile1 Case study</a> </td>
+                                                        
+
+                                                        <td> Exception handling ( try,catch, throw, throws ) and array of objects.</td>
+                                                    </tr>
+                                                
+
+                                        </tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accord panel panel-default">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#collapseTwo" aria-expanded="true">
+                                            Topics to Learn
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                    <div class="panel-body">
+                                        <p>To complete the above project, you will need to learn the below technical topics-</p>
+
+                                        <div class="bs-example">                             
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#T1" class="" aria-expanded="true">Abstract Classes</a>
+
+                                                            </h5> </div>
+                                                        <div id="T1" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Abstract Classes</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Abstract Classes </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=AbstractClasses.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> AbstractClasses.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Abstract Classes </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/CUC522qMGe8" target="_blank"> https://www.youtube.com/embed/CUC522qMGe8</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>Abstract Classes </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_abstraction.htm" target="_blank"> http://www.tutorialspoint.com/java/java_abstraction.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Abstract Classes</strong></h4>
+                                                                    
+                                                                                  
+                                                                        <h5>Complete the below hands-on assignments before proceeding with the next Topic</h5>                    
+
+
+                                                                        <input type="submit" id="exUpdate_0" value="Update Completion Status" class="btn btn-success"><table border="1" style="margin: auto;" class="mt">
+                                                                            <tbody><tr>
+
+                                                                                <th>No.</th>
+                                                                                <th width="75%">Hands-on Assignment</th>
+                                                                                <th>Topics Covered</th>
+                                                                                <th>Status </th></tr>
+                                                                                    <form id="exUpdate" name="exUpdate" action="http://59.162.104.101:25000/PBLApp/exUpdate.action" method="post"></form>
+
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>1</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Create an abstract class Compartment to represent a rail coach. Provide an abstract function notice in this class. 
+
+public abstract String notice();
+
+Derive FirstClass, Ladies, General, Luggage classes from the compartment class. Override the notice function in each of them to print notice message that is suitable to the specific type of  compartment.
+
+Create a class TestCompartment.Write main function to do the following:
+Declare an array of Compartment of size 10.
+Create a compartment of a type as decided by a randomly generated integer in the range 1 to 4.
+Check the polymorphic behavior of the notice method.
+[i.e based on the random  number genererated, the first compartment can be Luggage, the second one could be Ladies and so on..]</pre> </td>
+                                                                                                                                                                                     <td> Abstract Classes</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="1"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Abstract Classes">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                 
+
+
+                                                                                
+
+                                                                            
+
+
+
+
+                                                                        </tbody></table>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#T2" aria-expanded="true">Final Keyword</a>
+
+                                                            </h5> </div>
+                                                        <div id="T2" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Final Keyword</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Final Keyword </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=final_keyword.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> final_keyword.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Final Keyword </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/WZgcRSWVgpQ" target="_blank"> https://www.youtube.com/embed/WZgcRSWVgpQ</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Final Keyword</strong></h4>
+                                                                    
+                                                                        <center><h4><span class="label label-warning"> NO Hands-on Assignments for this topic </span></h4></center>
+                                                                                
+                                                                                
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#T3" aria-expanded="true">Packages</a>
+
+                                                            </h5> </div>
+                                                        <div id="T3" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Packages</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Introduction to Packages </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Introduction_toPackages.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> Introduction_toPackages.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Introduction to Packages </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_packages.htm" target="_blank"> http://www.tutorialspoint.com/java/java_packages.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>Introduction to Packages </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/BT5Nk2aIRJg" target="_blank"> https://www.youtube.com/embed/BT5Nk2aIRJg</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>4</td>
+                                                                                        <td>Packages - Import </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Import.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> Import.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Packages</strong></h4>
+                                                                    
+                                                                        <center><h4><span class="label label-warning"> NO Hands-on Assignments for this topic </span></h4></center>
+                                                                                
+                                                                                
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#T4" aria-expanded="true">Interfaces</a>
+
+                                                            </h5> </div>
+                                                        <div id="T4" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Interfaces</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Interfaces </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Interfaces.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> Interfaces.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Interfaces </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/UumX4mQKQlA" target="_blank"> https://www.youtube.com/embed/UumX4mQKQlA</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>Interfaces </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_interfaces.htm" target="_blank"> http://www.tutorialspoint.com/java/java_interfaces.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Interfaces</strong></h4>
+                                                                    
+                                                                                  
+                                                                        <h5>Complete the below hands-on assignments before proceeding with the next Topic</h5>                    
+
+
+                                                                        <input type="submit" id="exUpdate_0" value="Update Completion Status" class="btn btn-success"><table border="1" style="margin: auto;" class="mt">
+                                                                            <tbody><tr>
+
+                                                                                <th>No.</th>
+                                                                                <th width="75%">Hands-on Assignment</th>
+                                                                                <th>Topics Covered</th>
+                                                                                <th>Status </th></tr>
+                                                                                    <form id="exUpdate" name="exUpdate" action="http://59.162.104.101:25000/PBLApp/exUpdate.action" method="post"></form>
+
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>1</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Write an interface called Playable, with a method
+void play();
+Let this interface be placed in a package called music.
+
+Write a class called Veena which implements Playable interface. Let this class be placed in a package music.string
+
+Write a class called Saxophone which implements Playable interface. Let this class be placed in a package music.wind
+
+Write another class Test in a package called live. Then,
+a. Create an instance of Veena and call play() method
+b. Create an instance of Saxophone and call play() method
+c. Place the above instances in a variable of type Playable and then call play()
+
+</pre> </td>
+                                                                                                                                                                                     <td> Interfaces</td>
+
+                                                                                            
+                                                                                                <td><input type="checkbox" checked="" name="param" value="1"> </td>
+                                                                                                
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Interfaces">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                 
+
+
+                                                                                
+
+                                                                            
+
+
+
+
+                                                                        </tbody></table>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                            
+
+                                                <div class="panel-group" id="accordion1">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading">
+                                                            <h5 class="panel-title">
+                                                                <i class="icon-chevron-down"></i>
+                                                                <a data-toggle="collapse" data-parent="#accordion1" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#T5" aria-expanded="true">Exception Handling</a>
+
+                                                            </h5> </div>
+                                                        <div id="T5" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                            <div class="panel-body">
+                                                                <h4>Learning Material for <strong>Exception Handling</strong> </h4>
+                                                                <h5>Below is the learning material that you are expected to read along with completion of the hands-on assignments. The material is mentioned in the order in which it should be read.</h5>
+                                                                <ttitle>
+                                                                        </ttitle><table border="1" style="margin: auto;table-layout:fixed;word-wrap: break-word;white-space: normal;width:100%" class="mt">
+                                                                    <tbody><tr><th width="5%"> No </th>    
+                                                                        <th width="35%">Material Title</th>
+                                                                        <th width="37%">Material Location</th>
+                                                                        <th width="10%">Type of Material</th>
+                                                                        <th width="14%">Classification</th>
+                                                                        </tr>
+
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Introduction to Exception Handling </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Introduction_ExceptionHandling.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> Introduction_ExceptionHandling.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>Introduction to Exception Handling </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/GIezre-rYsE" target="_blank"> https://www.youtube.com/embed/GIezre-rYsE</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>Introduction to Exception Handling </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://www.tutorialspoint.com/java/java_exceptions.htm" target="_blank"> http://www.tutorialspoint.com/java/java_exceptions.htm</a></td>
+                                                                                           
+
+                                                                                        <td>Web</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>4</td>
+                                                                                        <td>Exception Types </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=ExceptionTypes.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> ExceptionTypes.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>5</td>
+                                                                                        <td>Exception Types </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/ohpCMpderow" target="_blank"> https://www.youtube.com/embed/ohpCMpderow</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>6</td>
+                                                                                        <td>Try and Catch Block </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=Try-CatchBlock.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> Try-CatchBlock.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>7</td>
+                                                                                        <td>Try and Catch Block </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/eMhWf1kKm7g" target="_blank"> https://www.youtube.com/embed/eMhWf1kKm7g</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>8</td>
+                                                                                        <td>Throws </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=ThrowsClause.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> ThrowsClause.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>9</td>
+                                                                                        <td>Throw clause </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=ThrowClause.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> ThrowClause.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>10</td>
+                                                                                        <td>Throw clause </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/0N-DhLQ5pxs" target="_blank"> https://www.youtube.com/embed/0N-DhLQ5pxs</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>11</td>
+                                                                                        <td>Finally clause </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=pdf&amp;file=FinallyClause.pdf&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> FinallyClause.pdf</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>PDF</td>
+                                                                                        <td>Mandatory</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>12</td>
+                                                                                        <td>Finally clause </td>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="https://www.youtube.com/embed/8_-aKmOXOl0" target="_blank"> https://www.youtube.com/embed/8_-aKmOXOl0</a></td>
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                                
+                                                                                    <tr>
+                                                                                        <td>13</td>
+                                                                                        <td>Runtime Exception  </td>
+                                                                                        
+                                                                                        
+                                                                                            <td> <a href="http://59.162.104.101:25000/PBLApp/fetchfile?type=ytube&amp;file=https://www.youtube.com/embed/EtMaHtZTlSc&amp;stream=Java&amp;tm=TM803&amp;module=Abstraction%20/Packages%20/%20Exception%20Handling" target="_blank"> https://www.youtube.com/embed/EtMaHtZTlSc</a></td>   
+                                                                                        
+                                                                                           
+
+                                                                                        <td>Video</td>
+                                                                                        <td>Suggestive</td>
+                                                                                    </tr>
+                                                                                
+                                                                            
+                                                                        
+
+                                                                            
+                                                                        
+
+                                                                </tbody></table>
+                                                                <div>
+
+
+                                                                    <h4>Hands-on Assignments for <strong>Exception Handling</strong></h4>
+                                                                    
+                                                                                  
+                                                                        <h5>Complete the below hands-on assignments before proceeding with the next Topic</h5>                    
+
+
+                                                                        <input type="submit" id="exUpdate_0" value="Update Completion Status" class="btn btn-success"><table border="1" style="margin: auto;" class="mt">
+                                                                            <tbody><tr>
+
+                                                                                <th>No.</th>
+                                                                                <th width="75%">Hands-on Assignment</th>
+                                                                                <th>Topics Covered</th>
+                                                                                <th>Status </th></tr>
+                                                                                    <form id="exUpdate" name="exUpdate" action="http://59.162.104.101:25000/PBLApp/exUpdate.action" method="post"></form>
+
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>1</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> 
+
+
+Write a program that takes as input the size of the array and the elements in the array. The program then asks the user to enter a particular index and prints the element at that index. Index  starts from zero. 
+
+This program may generate Array Index Out Of Bounds Exception  or NumberFormatException .  Use exception handling mechanisms to handle this exception. 
+
+Sample Input and Output 1:
+Enter the number of elements in the array
+2
+Enter the elements in the array
+50
+80
+Enter the index of the array element you want to access
+1
+The array element at index 1 = 80
+The array element successfully accessed
+
+
+ Sample Input and Output 2:
+Enter the number of elements in the array
+2
+Enter the elements in the array
+50
+80
+Enter the index of the array element you want to access
+9
+java.lang.ArrayIndexOutOfBoundsException
+
+
+ Sample Input and Output 3:
+Enter the number of elements in the array
+2
+Enter the elements in the array
+30
+j
+java.lang.NumberFormatException
+
+
+</pre> </td>
+                                                                                                                                                                                     <td> Exception Handling:
+
+Try-catch
+Use multiple catch block 
+</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="1"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Exception Handling">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>2</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Write a class MathOperation which accepts 5 integers through command line. Create an array using these parameters. Loop through the array and obtain the sum and average of all the elements and display the result. 
+
+Various exceptions that may arise like ArithmeticException, NumberFormatException, and so on should be handled.
+</pre> </td>
+                                                                                                                                                                                     <td> 
+
+
+Exception handling:
+
+throws  
+</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="2"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Exception Handling">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>3</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> Write a Program to take care of Number Format Exception if user enters values other than integer for calculating average marks of 2 students. The name of the students and marks in 3 subjects are taken from the user while executing the program.
+In the same Program write your own Exception classes to take care of Negative values and values out of range (i.e. other than in the range of 0-100)</pre> </td>
+                                                                                                                                                                                     <td> 
+Exception Handling:
+Throw &amp;  Used Defined Exception
+</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="3"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Exception Handling">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>4</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> A student portal provides user to register their profile. During registration the system needs to validate the user should be located in India. If not the system should throw an exception.
+
+Step 1: Create a user defined exception class named “InvalidCountryException”.
+Step 2: Overload the respective constructors.
+Step 3: Create a main class “UserRegistration”, add the following method,
+void registerUser(String username,String userCountry) with the below implementation
+• if userCountry is not equal to  “India” throw a InvalidCountryException with the message “User Outside India  cannot be registered”
+• if userCountry is equal to  “India”,  print the message “User registration done successfully”
+
+Invoke the method registerUser from the main method with the data specified and see how the program behaves.
+Example1)
+i/p:Mickey,US 
+o/p:InvalidCountryException should be thrown.
+The message should be “User Outside India  cannot be registered”
+
+Example2)
+i/p:Mini,India
+o/p:User registration done successfully</pre> </td>
+                                                                                                                                                                                     <td>  
+Exception Handling:
+User Defined Exception &amp; throw
+</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="4"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Exception Handling">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                
+
+                                                                                    
+                                                                                        <tr>
+
+                                                                                            <td>5</td>
+                                                                                            
+                                                                                            
+                                                                                             
+
+                                                                                                <td><pre style="white-space:pre-wrap;word-wrap:break-word;word-break:keep-all;"> 
+Write a program to accept name and age of a person from the command prompt(passed as arguments when you execute the class) and ensure that the age entered is &gt;=18 and &lt; 60. 
+Display proper error messages. 
+
+The program must exit gracefully after displaying the error message in case the arguments passed are not proper.
+ (Hint : Create a user defined exception class for handling errors.)</pre> </td>
+                                                                                                                                                                                     <td> 
+Exception handling:
+User Defined Exception &amp; throw 
+</td>
+
+                                                                                            
+                                                                                                
+                                                                                                <td><input type="checkbox" name="param" value="5"> </td>
+                                                                                                    
+
+
+                                                                                        <input type="hidden" name="topic" value="Exception Handling">
+                                                                                        <input type="hidden" name="module" value="Abstraction /Packages / Exception Handling">
+                                                                                        <input type="hidden" name="uname" value="9394785">
+                                                                                        </tr>
+                                                                                    
+                                                                                 
+
+
+                                                                                
+
+                                                                            
+
+
+
+
+                                                                        </tbody></table>
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>   
+
+                                                                                 
+                                        </div> 
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accord panel panel-default">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#collapseThree" aria-expanded="false">
+                                            Learning Outcomes
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="panel-body">
+
+                                        <h5>Upon completion of this TECH Module, you should be able to: </h5>
+                                        <section id="services" class="clearfix">
+                                            <div class="container">
+                                                <ul> 
+                                                    
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with abstract classes and its uses</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with interfaces and its uses</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to work with packages and its uses</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to handle exceptions and its uses</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Understand how to define user exceptions and its uses</li>
+                                                        
+                                                        <li class="icon_papers"> &nbsp; Implement mini-project using all the concepts learned</li>
+                                                             
+                                                </ul>
+                                            </div>
+
+
+                                    </section></div>
+                                </div>
+                            </div>
+
+                            <div class="accord panel panel-default">
+                                <div class="panel-heading-fd">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803#collapseFour" aria-expanded="false">
+                                            Sample Questions
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="panel-body">
+
+                                        <p>After gaining knowledge of the above module, below are the possible interview questions that you should be able to confidently answer.</p>
+                                        <ttitle>
+                                                </ttitle><section id="services" class="clearfix">
+
+                                                    
+                                                        </section><table border="1" style="margin: auto;" class="mt">
+                                            <tbody><tr><th> No </th>    
+                                                <th width="95%">Questions</th>
+                                                </tr>
+                                                <tr>
+                                                            <td>&nbsp;1</td>
+                                                            <td>&nbsp;What are called Abstract classes?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;2</td>
+                                                            <td>&nbsp;Can abstract classes have static methods?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;3</td>
+                                                            <td>&nbsp;Can abstract classes have static variables?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;4</td>
+                                                            <td>&nbsp;Can abstract class have static and final variables?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;5</td>
+                                                            <td>&nbsp;Can abstract class have static and final methods?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;6</td>
+                                                            <td>&nbsp;Can a sub class directly use the abstract method of the base class without overriding it?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;7</td>
+                                                            <td>&nbsp;Can we instantiate an abstract class?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;8</td>
+                                                            <td>&nbsp;Can we create a final and abstract method in a class?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;9</td>
+                                                            <td>&nbsp;Can an abstract class implement interfaces?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;10</td>
+                                                            <td>&nbsp;Can an abstract class extend a final method?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;11</td>
+                                                            <td>&nbsp;What are interfaces?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;12</td>
+                                                            <td>&nbsp;How to create an interface?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;13</td>
+                                                            <td>&nbsp;Difference between abstract classes and interfaces.</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;14</td>
+                                                            <td>&nbsp;What are called Marker Interfaces and why do we use Marker Interface?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;15</td>
+                                                            <td>&nbsp;What are packages?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;16</td>
+                                                            <td>&nbsp;What are the benefits of creating programs using packaging?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;17</td>
+                                                            <td>&nbsp;Inside a package can we create private classes?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;18</td>
+                                                            <td>&nbsp;What is the difference between import and import static statements?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;19</td>
+                                                            <td>&nbsp;What are Exceptions?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;20</td>
+                                                            <td>&nbsp;Differentiate between exceptions , runtime errors and compile time errors</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;21</td>
+                                                            <td>&nbsp;Throwable class belongs to which package in Java API?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;22</td>
+                                                            <td>&nbsp;What are the 2 types of exception classification? Explain its differences.</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;23</td>
+                                                            <td>&nbsp;What is a finally block?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;24</td>
+                                                            <td>&nbsp;Can we have try followed by only a finally block without catch block?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;25</td>
+                                                            <td>&nbsp;What is the difference between throw and throws keyword in java?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;26</td>
+                                                            <td>&nbsp;Can the same exception been declared to be thrown many times by the method. Eg: publiv void sample() throws IOException,IOEeception,SQLException</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;27</td>
+                                                            <td>&nbsp;What are user defined exceptions?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;28</td>
+                                                            <td>&nbsp;Why do we need user defined exceptions?</td>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td>&nbsp;29</td>
+                                                            <td>&nbsp;How to give custom messages while throwing predefined exceptions?</td>
+                                                        </tr>
+                                                     
+                                                
+                                        </tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer offer-radius offer-success">
+                    <div class="shape">
+                        <div class="shape-text">
+                            New								
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="offer-content" id="content">
+                            <div class="col-sm-4" style="margin-top: 30px">
+                                <img src="./LetsPlay.png">
+                                <img src="./comingsoon.jpg" height="150px" width="150px"> 
+                            </div>
+
+                            <div class="col-sm-2 col-xs-3">
+                                <div class="circle circle2">
+                                    <!--          <a href="http://localhost/quiz/homepage.php?eid=7777&category=JAVA&tm=TM1&topic=Java Architecture&tot=5" target=""><h2>Quiz Corner</h2></a>-->
+                                    <a href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803" target=""><h2>Quiz Corner</h2></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <div class="circle circle2">
+                                    <!--          <a href="http://localhost:9090/PBLCrossword_v2/LaunchBoardNew1.jsp?name=CW_TM_1" target=""><h2>Cross words</h2></a>-->
+                                    <a href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803" target=""><h2>Cross words</h2></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <div class="circle circle2">
+                                    <a href="http://59.162.104.101:25000/PBLApp/tmodule.action?module=Abstraction%20/Packages%20/%20Exception%20Handling&amp;stream=Java&amp;tm=TM803"><h2>Debug Corner</h2></a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>   
+
+
+            </div>
+        </div>
+
+    
+</body></html>
